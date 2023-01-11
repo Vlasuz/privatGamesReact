@@ -2,7 +2,7 @@ import React from 'react';
 import {Link, NavLink} from "react-router-dom";
 import MainRoomsList from "./MainRoomsList";
 
-const MainRooms = (props) => {
+const MainRooms = () => {
     
     return (
         <section className="rooms section-padding">
@@ -22,7 +22,7 @@ const MainRooms = (props) => {
                     </Link>
                 </div>
 
-                <MainRoomsList states={props.states} />
+                <MainRoomsList/>
 
                 <Link to={"/rooms"} className="rooms__more-btn alt-btn _transparent visible-on-table">
                     Все команты

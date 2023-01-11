@@ -1,4 +1,4 @@
-import { LOGOUT } from "./types";
+import { LOGOUT } from "../types";
 
 const initialState = {
     auth: true,

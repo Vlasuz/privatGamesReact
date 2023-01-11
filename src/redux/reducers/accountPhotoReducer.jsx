@@ -1,4 +1,4 @@
-import { ACCOUNT_SETTINGS_PHOTO } from "./types";
+import { ACCOUNT_SETTINGS_PHOTO } from "../types";
 
 const initialState = {
     photo: ''

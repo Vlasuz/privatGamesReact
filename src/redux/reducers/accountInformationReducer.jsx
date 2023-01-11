@@ -1,4 +1,4 @@
-import { ACCOUNT_SETTINGS_DATA } from "./types";
+import { ACCOUNT_SETTINGS_DATA } from "../types";
 
 const initialState = {
     info: {

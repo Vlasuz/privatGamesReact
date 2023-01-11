@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PopupBgd from "../PopupBgd";
 import PopupCross from "../PopupCross";
 import PopupSubscribeForm from "./PopupSubscribeForm";
 
 const PopupSubscribe = () => {
+
     return (
         <div className="subscribe-popup popup" id="subscribe-popup">
             <div className="subscribe-popup__wrapper popup-wrapper">

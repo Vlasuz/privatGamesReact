@@ -3,12 +3,13 @@ import './styles/styles.css';
 import JsAos from "./components/JS_Aos";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import JsScroll from "./components/JS_Scroll";
 import testWebP from "./components/JS_WebP";
 import Routers from "./pages/Routers";
 import {BrowserRouter} from "react-router-dom";
 import Popups from "./components/components_popups/Popups";
 import {useTranslation} from "react-i18next";
+import Notifications from "./components/Notifications";
+import JsScroll from "./components/JS_Scroll";
 
 const App = (props) => {
 
@@ -31,6 +32,7 @@ const App = (props) => {
             <Footer/>
 
             <Popups/>
+            <Notifications />
 
         </BrowserRouter>
     );

@@ -1,8 +1,22 @@
 import React from 'react';
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useNavigate} from "react-router-dom";
 import OpenPopup from "../../hooks/OpenPopup";
+import {useDispatch, useSelector} from "react-redux";
+import {logoutReducer} from "../../redux/reducers/logoutReducer";
+import {actionLogout} from "../../redux/actions";
 
 const AccountAside = () => {
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+
+    const handleExit = (e) => {
+        e.preventDefault()
+        dispatch(actionLogout(prev => !prev))
+        navigate('/')
+    }
+
     return (
         <aside className="account__aside account-aside">
             <div className="account-aside__body">
@@ -74,29 +88,15 @@ const AccountAside = () => {
                         </a>
                     </li>
                     <li className="account-aside__item">
-                        <a href="#" className="account-aside__link">
-                            <svg width="13" height="12" viewBox="0 0 13 12" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12.7887 5.20202L8.32012 9.24972C7.92963 9.60601 7.31241 9.3179 7.31241 8.76325V6.4316C3.37426 6.49053 1.67723 7.52188 2.82838 11.4062C2.95612 11.8372 2.46252 12.1713 2.11596 11.905C1.00517 11.0526 0 9.42385 0 7.77637C0 3.69919 3.23462 2.83661 7.31216 2.78571V0.643186C7.31216 0.0894718 7.92862 -0.199574 8.31987 0.15671L12.7884 4.20442C13.0705 4.48409 13.0705 4.94485 12.7887 5.20202Z"
-                                    fill="#F9F1DF"/>
+                        <a onClick={OpenPopup} href="#subscribe-popup" className="account-aside__link open-popup">
+                            <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7887 5.20202L8.32012 9.24972C7.92963 9.60601 7.31241 9.3179 7.31241 8.76325V6.4316C3.37426 6.49053 1.67723 7.52188 2.82838 11.4062C2.95612 11.8372 2.46252 12.1713 2.11596 11.905C1.00517 11.0526 0 9.42385 0 7.77637C0 3.69919 3.23462 2.83661 7.31216 2.78571V0.643186C7.31216 0.0894718 7.92862 -0.199574 8.31987 0.15671L12.7884 4.20442C13.0705 4.48409 13.0705 4.94485 12.7887 5.20202Z" fill="#F9F1DF"></path>
                             </svg>
-                            Поделиться
+                            Подписаться
                         </a>
                     </li>
                     <li className="account-aside__item">
-                        <a href="#" className="account-aside__link">
-                            <svg width="13" height="12" viewBox="0 0 13 12" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M8.60361 3.5226L11.8468 4.01947C12.1154 4.05931 12.3411 4.25619 12.4269 4.52572C12.5126 4.7976 12.4427 5.09291 12.2486 5.29447L9.89684 7.68978L10.452 11.1257C10.4972 11.407 10.3866 11.6929 10.1609 11.8593C9.93746 12.0257 9.6418 12.0468 9.40031 11.9132L6.50239 10.3078L3.60673 11.9132C3.36298 12.0468 3.06732 12.0257 2.84389 11.8593C2.62045 11.6929 2.5076 11.407 2.555 11.1257L3.1102 7.68978L0.758018 5.29447C0.563695 5.09291 0.494632 4.7976 0.579945 4.52572C0.665031 4.25619 0.890049 4.05931 1.16066 4.01947L4.40118 3.5226L5.85465 0.421112C5.97427 0.162924 6.22705 -0.000976562 6.50239 -0.000976562C6.78 -0.000976562 7.03277 0.162924 7.15239 0.421112L8.60361 3.5226Z"
-                                    fill="#F9F1DF"/>
-                            </svg>
-                            Оценить приложение
-                        </a>
-                    </li>
-                    <li className="account-aside__item">
-                        <a href="#" className="account-aside__link">
+                        <button onClick={handleExit} className="account-aside__link">
                             <svg width="14" height="12" viewBox="0 0 14 12" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -104,7 +104,7 @@ const AccountAside = () => {
                                     fill="#F9F1DF"/>
                             </svg>
                             Выйти
-                        </a>
+                        </button>
                     </li>
                 </ul>
             </div>

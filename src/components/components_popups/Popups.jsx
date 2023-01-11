@@ -5,6 +5,7 @@ import PopupLogin from "./popup_login/PopupLogin";
 import PopupForgotPassword from "./popup_forgot_password/PopupForgotPassword";
 import PopupForgotPasswordSent from "./popup_forgot_password/PopupForgotPasswordSent";
 import PopupSubscribe from "./popup_subscribe/PopupSubscribe";
+import PopupMiniVideo from "./popup_video/PopupMiniVideo";
 
 const Popups = () => {
 
@@ -20,6 +21,8 @@ const Popups = () => {
             <PopupForgotPasswordSent />
 
             <PopupSubscribe />
+
+            <PopupMiniVideo/>
             
             {/*<div className="game-exit-popup popup" id="game-exit-popup" style="display: none;">*/}
             {/*    <div className="game-exit-popup__wrapper popup-wrapper">*/}

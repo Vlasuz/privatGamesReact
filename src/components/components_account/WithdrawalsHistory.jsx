@@ -29,7 +29,7 @@ const WithdrawalsHistory = () => {
 
                 {
                     listWithdrawals.map(item =>
-                        <li className="account-withdrawals-history__item">
+                        <li key={item.id} className="account-withdrawals-history__item">
                             <div className="account-history-element">
                                 <div className="account-history-element__body">
                                     <div className="account-history-element__col">

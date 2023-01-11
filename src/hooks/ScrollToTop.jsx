@@ -8,7 +8,7 @@ export default function ScrollToTop() {
     useEffect(() => {
         JsCustomSelect()
 
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
     }, [pathname]);
 
     return null;

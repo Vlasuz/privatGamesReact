@@ -7,6 +7,7 @@ import {connect, useSelector} from "react-redux";
 import HeaderMobBurgerMenu from "./components_header/HeaderMobBurgerMenu";
 import OpenPopup from "../hooks/OpenPopup";
 import i18next from "i18next";
+import HeaderBalance from "./components_header/HeaderBalance";
 
 const Header = (props) => {
 
@@ -44,25 +45,14 @@ const Header = (props) => {
                                 )
                             }
                         </ul>
-                        <div className="header__nav--user-info header__user-info">
-                            <ul className="header__user-info--list">
-                                <li className="header__user-info--item">
-                                    <img src="images/header/chip-length.svg" width="20" height="20" alt="Poker chip"
-                                         className="header__user-info--icon"/>
-                                    <span>
-                                        00.00
-                                    </span>
-                                </li>
-                                <li className="header__user-info--item">
-                                    <img src="images/header/dollar.svg" width="20" height="20" alt="Dollar"
-                                         className="header__user-info--icon"/>
-                                    <span>
-                                        00.00
-                                    </span>
-                                </li>
-                            </ul>
-                            <HeaderNotifications/>
-                        </div>
+
+                        {
+                            isLogout ?
+                                <div className="header__nav--user-info header__user-info">
+                                    <HeaderBalance/>
+                                    <HeaderNotifications/>
+                                </div> : ""
+                        }
 
                         <HeaderLanguages/>
 

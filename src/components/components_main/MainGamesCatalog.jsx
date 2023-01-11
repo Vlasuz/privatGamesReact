@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {useSelector} from "react-redux";
 
 const MainGamesCatalog = (props) => {
+
+    const [activeCatalog, setActiveCatalog] = useState(0)
 
     const catalogClick = (e, itemNum) => {
         e.target.closest('.games__filter--list').querySelector('.tab-btn._active')?.classList.remove('_active')
         e.target.closest('.tab-btn').classList.add("_active")
-        props.setActiveCatalog(itemNum)
+        setActiveCatalog(itemNum)
 
         document.querySelector('.games__wrapper--block._active._visible')?.classList.remove('_visible')
         setTimeout(() => {
@@ -18,12 +21,17 @@ const MainGamesCatalog = (props) => {
 
     }
 
+    const catalog = useSelector(state => {
+        const {GamesCatalogListReducer} = state;
+        return GamesCatalogListReducer.catalog
+    })
+
     return (
         <div className="games__filter hide-on-table">
             <ul className="games__filter--list">
 
                 {
-                    props.gamesList.map((item, itemNum) =>
+                    catalog.map((item, itemNum) =>
                         <li key={itemNum} className="games__filter--item">
                             <button
                                 className={"games__filter--btn tab-btn" + (itemNum === 0 ? " _active" : "")}
@@ -31,7 +39,7 @@ const MainGamesCatalog = (props) => {
                             >
                                 <img src={item.icon} width="13" height="13" alt=""
                                      className="games__filter--icon"/>
-                                {item.catalog_name}
+                                {item.title}
                             </button>
                         </li>
                     )

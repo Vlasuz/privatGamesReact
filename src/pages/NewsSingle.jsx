@@ -1,10 +1,16 @@
 import React from 'react';
 import {NavLink, useParams} from "react-router-dom";
+import {useSelector} from "react-redux";
 
-const NewsSingle = (props) => {
+const NewsSingle = () => {
     const {newsId} = useParams()
 
-    const thisNews = props.newsList.filter(item => item.id === newsId)[0]
+    const newsList = useSelector(state => {
+        const {newsListReducer} = state
+        return newsListReducer.news
+    })
+
+    const thisNews = newsList.filter(item => item.id === newsId)[0]
     return (
         <main className="main">
             <section className="news-page page-padding" data-aos="fade-in" data-aos-delay="600">
@@ -68,7 +74,7 @@ const NewsSingle = (props) => {
                                 <ul className="news-page__aside--list">
 
                                     {
-                                        props.newsList.map((news, newsNum) => newsNum < 2 ?
+                                        newsList.map((news, newsNum) => newsNum < 2 ?
                                             <li key={news.id} className="news-page__aside--item">
                                                 <NavLink to={"/news/" + (news.id)} className="news-list__item--body">
                                                     <div className="news-list__item--image">
@@ -107,7 +113,7 @@ const NewsSingle = (props) => {
                     <ul className="news-list__row">
 
                         {
-                            props.newsList.map((news, newsNum) => newsNum < 3 ?
+                            newsList.map((news, newsNum) => newsNum < 3 ?
                                 <li key={news.id} className="news-list__item" data-aos="fade-up" data-aos-delay="300">
                                     <NavLink to={'/news/' + (news.id)} className="news-list__item--body">
                                         <div className="news-list__item--image">

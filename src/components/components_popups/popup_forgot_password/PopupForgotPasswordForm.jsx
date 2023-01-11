@@ -22,7 +22,7 @@ const PopupForgotPasswordForm = () => {
                 </label>
             </div>
             <button type="submit"
-                    className={"forgot-password-popup__submit popup-submit btn _large _shadow" + (valueInput ? "" : " _disabled")}>
+                    className={"forgot-password-popup__submit popup-submit btn _large _shadow" + (/\S+@\S+\.\S+/.test(valueInput) ? "" : " _disabled")}>
                 Отправить
             </button>
             <a href="#login-popup" onClick={OpenPopup}

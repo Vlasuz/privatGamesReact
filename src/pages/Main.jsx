@@ -11,13 +11,13 @@ const Main = (props) => {
 
     return (
         <main className="main">
-            <MainIntro />
-            <MainGames states={props.states[1]} />
-            <MainRooms states={props.states[2]} />
-            <MainAdvantages />
-            <MainVideo />
-            <MainLastNews states={props.states[0]} />
-            <MainFeedback />
+            <MainIntro/>
+            <MainGames/>
+            <MainRooms/>
+            <MainAdvantages/>
+            <MainVideo/>
+            <MainLastNews/>
+            <MainFeedback/>
         </main>
     );
 };

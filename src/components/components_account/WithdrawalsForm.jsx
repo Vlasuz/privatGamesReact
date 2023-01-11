@@ -15,7 +15,7 @@ const WithdrawalsForm = () => {
                                 <div className="account-withdrawals__row--block">
                                     <select name="withdrawals-type"
                                             className="account-withdrawals__select custom-select">
-                                        <option value="chips" selected
+                                        <option value="chips" defaultValue
                                                 data-image="images/icons/chip.svg">
                                             Фишки
                                         </option>
@@ -44,7 +44,7 @@ const WithdrawalsForm = () => {
                             </h3>
                             <select name="withdrawals-type"
                                     className="account-withdrawals__type--select custom-select">
-                                <option value="card-1" selected>
+                                <option value="card-1" defaultValue>
                                     Карта монобанка
                                 </option>
                                 <option value="card-2">

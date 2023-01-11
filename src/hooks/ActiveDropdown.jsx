@@ -1,5 +1,5 @@
 import React from 'react';
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 const ActiveDropdown = (funcToClose, endBlockClick) => {
 
@@ -12,11 +12,6 @@ const ActiveDropdown = (funcToClose, endBlockClick) => {
         document.addEventListener('click', e => clickAnywhere(e))
     })
 
-    return (
-        <div>
-
-        </div>
-    );
 };
 
 export default ActiveDropdown;

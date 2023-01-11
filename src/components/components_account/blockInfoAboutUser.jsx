@@ -1,5 +1,6 @@
 import React from 'react';
 import {useSelector} from "react-redux";
+import AccountCash from "./AccountCash";
 
 const BlockInfoAboutUser = () => {
 
@@ -19,21 +20,7 @@ const BlockInfoAboutUser = () => {
                                         {informationOfUser.email || "Unknown"}
                                     </span>
                 </div>
-                <div className="account-base-info__item">
-                    <dl className="account-base-info__list">
-                        <dt>
-                            <img src="images/icons/chip.svg" width="24" height="24" alt="" />
-                            Фишки
-                        </dt>
-                        <dd>250</dd>
-                        <dt>
-                            <img src="images/icons/dollar-circle.svg" width="24"
-                                 height="24"
-                                 alt=""/> Morgawr
-                        </dt>
-                        <dd>400</dd>
-                    </dl>
-                </div>
+                <AccountCash/>
             </div>
         </div>
     );

@@ -1,6 +1,8 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 import MainLastNewsList from "./MainLastNewsList";
+import OpenPopup from "../../hooks/OpenPopup";
+import {useSelector} from "react-redux";
 
 const MainLastNews = (props) => {
 
@@ -17,10 +19,10 @@ const MainLastNews = (props) => {
                         </NavLink>
                     </div>
 
-                    <MainLastNewsList states={props.states} />
+                    <MainLastNewsList />
 
                 </div>
-                <a href="news.html" className="last-news__game large-game" data-aos="fade-in" data-aos-delay="600">
+                <a onClick={OpenPopup} href={"#mini-video-popup"} className="last-news__game large-game" data-aos="fade-in" data-aos-delay="600">
                     <div className="large-game__preview">
                         <picture>
                             <img src="images/main-page/news/game.jpg" loading="lazy" alt="" width="300"

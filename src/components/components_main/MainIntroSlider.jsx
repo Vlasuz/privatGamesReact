@@ -4,6 +4,7 @@ import openPopup from "../../hooks/OpenPopup";
 import MainIntroDecorLeft from "./MainIntroDecorLeft";
 import MainIntroDecorRight from "./MainIntroDecorRight";
 import i18next from "i18next";
+import {NavLink} from "react-router-dom";
 
 const MainIntroSlider = () => {
 
@@ -47,9 +48,9 @@ const MainIntroSlider = () => {
                                         {slide.text}
                                     </p>
                                 </div>
-                                <a href="#subscribe-popup" onClick={openPopup} className="intro__btn btn _gradient _shadow">
+                                <NavLink to={'/games'} className="intro__btn btn _gradient _shadow">
                                     Подключиться
-                                </a>
+                                </NavLink>
                             </div>
                             <MainIntroDecorRight/>
 

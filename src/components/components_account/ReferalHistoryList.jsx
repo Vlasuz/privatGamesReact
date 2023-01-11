@@ -31,7 +31,7 @@ const ReferalHistoryList = () => {
 
             {
                 referalHistory.map(item =>
-                    <li className="account-referal-history__item">
+                    <li key={item.id} className="account-referal-history__item">
                         <div className="account-referal-history__item--body">
                             <div className="account-referal-history__item--header">
                                 <span className="account-referal-history__item--username">

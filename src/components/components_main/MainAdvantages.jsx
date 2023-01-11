@@ -2,6 +2,7 @@ import React from 'react';
 import MainAdvantagesDecorLeft from "./MainAdvantagesDecorLeft";
 import MainAdvantagesDecorRight from "./MainAdvantagesDecorRight";
 import MainAdvantagesList from "./MainAdvantagesList";
+import OpenPopup from "../../hooks/OpenPopup";
 
 const MainAdvantages = () => {
     return (
@@ -28,7 +29,7 @@ const MainAdvantages = () => {
                     <MainAdvantagesDecorRight/>
                 </div>
                 <MainAdvantagesList />
-                <a href="#" className="advantages__game large-game" data-aos="fade-in">
+                <a onClick={OpenPopup} href={"#mini-video-popup"} className="advantages__game large-game" data-aos="fade-in">
                     <div className="large-game__preview">
                         <picture>
                             <img src="images/main-page/advantages/super-game.jpg" loading="lazy" alt="" width="300"

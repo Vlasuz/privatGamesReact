@@ -68,14 +68,14 @@ const JsScroll = () => {
             hCheck[0] = false;
             hCheck[1] = true;
 
-            header.classList.remove('_hide'); // SHOW HEADER
+            // header.classList.remove('_hide'); // SHOW HEADER
         }
 
         if (hPosToDown <= headerPos.top && hCheck[1]) {
             hCheck[1] = false;
             hCheck[0] = true;
 
-            header.classList.add('_hide'); // HIDE HEADER
+            // header.classList.add('_hide'); // HIDE HEADER
         }
 
     }

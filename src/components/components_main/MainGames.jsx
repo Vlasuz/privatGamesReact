@@ -4,7 +4,6 @@ import MainGamesCatalog from "./MainGamesCatalog";
 import MainGamesList from "./MainGamesList";
 
 const MainGames = (props) => {
-    const [activeCatalog, setActiveCatalog] = useState(0)
 
     return (
         <section className="games section-padding">
@@ -18,8 +17,8 @@ const MainGames = (props) => {
                     </Link>
                 </div>
                 <div className="games__body tab-wrapper" data-aos="fade-in" data-aos-delay="300">
-                    <MainGamesCatalog setActiveCatalog={setActiveCatalog} gamesList={props.states} />
-                    <MainGamesList activeCatalog={activeCatalog} gamesList={props.states} />
+                    <MainGamesCatalog />
+                    <MainGamesList />
                 </div>
                 <a href="online-games.html" className="games__more-btn alt-btn visible-on-table">
                     Все онлайн игры

@@ -7,9 +7,6 @@ import GamesBackground from "../components/components_games/GamesBackground";
 
 const Games = (props) => {
 
-    const [activeCatalog, setActiveCatalog] = useState(0)
-    const [searchValue, setSearchValue] = useState('')
-
     return (
         <main className="main">
             <section className="online-games section-page-bg-wrapper page-padding">
@@ -17,16 +14,13 @@ const Games = (props) => {
                 <GamesBackground />
 
                 <div className="online-games__container container">
-                    <GamesTop searchState={{searchValue, setSearchValue}} />
+                    <GamesTop/>
 
                     <div className="online-games__main _pt tab-wrapper" data-aos="fade-in" data-aos-delay="400">
-                        <MainGamesCatalog setActiveCatalog={setActiveCatalog} gamesList={props.gamesList} />
-                        <MainGamesList searchValue={searchValue} activeCatalog={activeCatalog} gamesList={props.gamesList} />
+                        <MainGamesCatalog />
+                        <MainGamesList />
                     </div>
 
-                    <a href="#" className="online-games__more-btn alt-btn _transparent visible-on-table">
-                        Показать ещё
-                    </a>
                 </div>
             </section>
         </main>

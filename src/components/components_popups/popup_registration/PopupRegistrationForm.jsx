@@ -1,31 +1,45 @@
-import React from 'react';
+import React, {useState} from 'react';
 import openPopup from "../../../hooks/OpenPopup";
 import PopupViaSocials from "../PopupViaSocials";
 
 const PopupRegistrationForm = () => {
+
+    const [inputEmail, setInputEmail] = useState('');
+    const [inputName, setInputName] = useState('');
+    const [inputPassword, setInputPassword] = useState('');
+    const [inputRepeatPassword, setInputRepeatPassword] = useState('');
+    const [isValid, setIsValid] = useState(false)
+    const [isCheckedCheckbox, setIsCheckedCheckbox] = useState(true)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        setIsValid(true)
+    }
+
     return (
-        <form action="#" className="registration-popup__form popup-form">
+        <form onSubmit={handleSubmit} action="#" className="registration-popup__form popup-form">
             <div className="registration-popup__form--list popup-form-list">
-                <label className="registration-popup__label popup-label">
-                    <input type="email" name="email" required placeholder="Email"
+                <label className={"registration-popup__label popup-label"}>
+                    <input onChange={e => setInputEmail(e.target.value)} value={inputEmail} type="text" name="email" placeholder="Email"
                            className="registration-popup__input popup-input email-valid-input"/>
                     <span
                         className="registration-popup__input-placeholder popup-input-placeholder">Email</span>
                 </label>
-                <label className="registration-popup__label popup-label">
-                    <input type="text" name="name" required placeholder="Имя пользователя"
+                <label className={"registration-popup__label popup-label"}>
+                    <input onChange={e => setInputName(e.target.value)} value={inputName} type="text" name="name" placeholder="Имя пользователя"
                            className="registration-popup__input popup-input"/>
                     <span
                         className="registration-popup__input-placeholder popup-input-placeholder">Имя пользователя</span>
                 </label>
-                <label className="registration-popup__label popup-label">
-                    <input type="password" name="password" required placeholder="Пароль"
+                <label className={"registration-popup__label popup-label"}>
+                    <input onChange={e => setInputPassword(e.target.value)} value={inputPassword} type="password" name="password" placeholder="Пароль"
                            className="registration-popup__input popup-input"/>
                     <span
                         className="registration-popup__input-placeholder popup-input-placeholder">Пароль</span>
                 </label>
-                <label className="registration-popup__label popup-label">
-                    <input type="password" name="password-repeat" required
+                <label className={"registration-popup__label popup-label"}>
+                    <input onChange={e => setInputRepeatPassword(e.target.value)} value={inputRepeatPassword} type="password" name="password-repeat"
                            placeholder="Повторите пароль"
                            className="registration-popup__input popup-input"/>
                     <span
@@ -34,7 +48,7 @@ const PopupRegistrationForm = () => {
             </div>
             <div className="registration-popup__checkbox popup-checkbox">
                 <label className="popup-checkbox__label">
-                    <input type="checkbox" name="service-usage-rules" required
+                    <input type="checkbox" name="service-usage-rules" defaultChecked={isCheckedCheckbox} onChange={e => setIsCheckedCheckbox(e.target.value)}
                            className="popup-checkbox__input"/>
                     <span className="popup-checkbox__element">
                     </span>
@@ -43,6 +57,11 @@ const PopupRegistrationForm = () => {
                     </span>
                 </label>
             </div>
+            <ul className="errors-form">
+                {!isValid || inputEmail.length > 0 && /\S+@\S+\.\S+/.test(inputEmail) ? "" : <li>Пожалуйста, укажите верно почту</li>}
+                {!isValid || inputPassword.length > 0 && inputName.length > 0 && inputRepeatPassword.length > 0 ? "" : <li>Пожалуйста, заполните все поля</li>}
+                {!isValid || inputPassword === inputRepeatPassword ? "" : <li>Пароли не совпадают</li>}
+            </ul>
             <button type="submit"
                     className="registration-popup__submit popup-submit btn _large _shadow">
                 Зарегистрироваться
